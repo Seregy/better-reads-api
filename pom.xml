@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.seregy77</groupId>
+    <artifactId>better-reads-api</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>better-reads-api</name>
+    <description>Better Reads API</description>
+
+    <properties>
+        <better-reads-api-prefix>com.seregy77.better-reads-api</better-reads-api-prefix>
+        <better-reads-api-location>
+            ${project.basedir}/src/main/resources/better-reads-api.yaml
+        </better-reads-api-location>
+
+        <openapi-validator-maven-plugin.version>1.0.2</openapi-validator-maven-plugin.version>
+    </properties>
+
+    <build>
+        <finalName>better-reads-api</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>it.traeck.tools.openapi</groupId>
+                <artifactId>openapi-validator-maven-plugin</artifactId>
+                <version>${openapi-validator-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${better-reads-api-location}</inputSpec>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://github.com/Seregy/better-reads-api</url>
+        </repository>
+    </distributionManagement>
+</project>

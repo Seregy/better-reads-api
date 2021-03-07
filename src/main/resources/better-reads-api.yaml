@@ -1,0 +1,53 @@
+openapi: 3.0.1
+info:
+  title: Better Reads API
+  description: 'Better Reads API'
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  contact:
+    name: Seregy
+    url: https://github.com/Seregy
+  version: 1.0.0
+tags:
+  - name: User
+    description: User operations
+paths:
+  /users/{id}:
+    get:
+      tags:
+        - User
+      summary: Finds user by id
+      description: Finds user by id
+      operationId: findUserById
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Invalid ID
+          content: {}
+components:
+  schemas:
+    User:
+      required:
+        - id
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+          example: 12325
+        name:
+          type: string
+          example: JohnJohn
