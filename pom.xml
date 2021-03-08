@@ -44,7 +44,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://github.com/Seregy/better-reads-api</url>
+            <url>https://maven.pkg.github.com/Seregy/better-reads-api</url>
         </repository>
     </distributionManagement>
 </project>
